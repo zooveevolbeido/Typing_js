@@ -23,7 +23,7 @@ function setScript() {
 function handleTyping(event) {
     const keyPressed = event.which || event.keyCode;
 
-    // デフォルト動作を無効化（スペースキーを含む全キー）
+    // デフォルト動作を無効化（スペースキーなどによるスクロール防止）
     event.preventDefault();
 
     // 入力されたキーが現在の文字に一致する場合
@@ -40,16 +40,7 @@ function displayText() {
     const remainingText = `<span style="color: black;">${scriptText.slice(currentIndex)}</span>`;
     document.getElementById("txt").innerHTML = correctText + remainingText;
 
-    // 自動スクロール機能
-    const scriptBox = document.getElementById("scriptBox");
-    const typedTextElement = document.getElementById("typedText");
-    if (typedTextElement) {
-        // 現在の入力位置をスクロールビューに合わせる
-        typedTextElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    } else {
-        // スクロールを最下部まで動かすバックアップ
-        scriptBox.scrollTop = scriptBox.scrollHeight;
-    }
+    // 自動スクロールは完全に無効化
 }
 
 // ゲームをスタート
