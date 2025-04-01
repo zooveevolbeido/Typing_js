@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Typing Contest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- スクリプト入力画面 -->
+    <div id="inputArea">
+        <textarea id="inputText" placeholder="ここにタイピングスクリプトを入力してください"></textarea>
+        <button id="setTextBTN" onclick="setScript()">Set Script</button>
+    </div>
+    
+    <!-- タイピングゲームエリア -->
+    <div id="gameArea" style="display: none;">
+        <div id="scriptBox">
+            <span id="txt">
+                <span id="typedText" style="color: red;"></span>
+                <span id="remainingText" style="color: black;"></span>
+            </span>
+        </div>
+        <input id="fun" onfocus="startGame()" onkeypress="handleTyping(event)" placeholder="Type here...">
+        <p id="startMessage" style="text-align: center; margin-top: 5px;">⬆️ Click here to start</p>
+        <p>Time: <span id="seconds">0 seconds</span></p>
+        <p id="cpsDisplay" style="display: none;">Speed: <span id="charsPerSecond">0</span> characters/s</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
