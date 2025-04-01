@@ -23,6 +23,9 @@ function setScript() {
 function handleTyping(event) {
     const keyPressed = event.which || event.keyCode;
 
+    // デフォルト動作を無効化（スペースキーを含む全キー）
+    event.preventDefault();
+
     // 入力されたキーが現在の文字に一致する場合
     if (keyPressed === scriptText.charCodeAt(currentIndex)) {
         count++;
