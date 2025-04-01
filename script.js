@@ -39,7 +39,14 @@ function displayText() {
 
     // 自動スクロール機能
     const scriptBox = document.getElementById("scriptBox");
-    scriptBox.scrollTop = scriptBox.scrollHeight; // 最下部までスクロール
+    const typedTextElement = document.getElementById("typedText");
+    if (typedTextElement) {
+        // 現在の入力位置をスクロールビューに合わせる
+        typedTextElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } else {
+        // スクロールを最下部まで動かすバックアップ
+        scriptBox.scrollTop = scriptBox.scrollHeight;
+    }
 }
 
 // ゲームをスタート
