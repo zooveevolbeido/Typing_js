@@ -36,6 +36,10 @@ function displayText() {
     const correctText = `<span style="color: red;">${scriptText.slice(0, currentIndex)}</span>`;
     const remainingText = `<span style="color: black;">${scriptText.slice(currentIndex)}</span>`;
     document.getElementById("txt").innerHTML = correctText + remainingText;
+
+    // 自動スクロール機能
+    const scriptBox = document.getElementById("scriptBox");
+    scriptBox.scrollTop = scriptBox.scrollHeight; // 最下部までスクロール
 }
 
 // ゲームをスタート
